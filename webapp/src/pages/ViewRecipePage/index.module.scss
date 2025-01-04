@@ -1,0 +1,10 @@
+@import '../../styles/_vars';
+@import '../../styles/_mixins';
+
+.text {
+  font-size: 14px;
+
+  & > *:not(:first-child) {
+    margin-top: 10px;
+  }
+}

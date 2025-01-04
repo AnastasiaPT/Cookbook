@@ -1,0 +1,25 @@
+{
+  "name": "@cookingbook/backend",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "ts-node-dev --rs ./src/index.ts",
+    "build": "rimraf ./dist && tsc --build ./tsconfig.json",
+    "start": "node ./dist/index.js",
+    "types": "tsc --noEmit --project ./tsconfig.json",
+    "prettify": "prettier --loglevel warn --cache --write '{src/**/*,*}.{ts,tsx,js,json,yml,scss}' '!**/{node_modules,dist}/**/*'"
+  },
+  "dependencies": {
+    "@trpc/server": "^10.45.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "lodash": "^4.17.21",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^22.10.3"
+  }
+}
