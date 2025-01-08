@@ -1,4 +1,4 @@
-import type { TrpcRouter } from '@cookingbook/backend/src/trpc'
+import type { TrpcRouter } from '@cookingbook/backend/src/router'
 import { createTRPCReact } from '@trpc/react-query'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink } from '@trpc/client'
@@ -29,3 +29,4 @@ export const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
     </trpc.Provider>
   )
 }
+
