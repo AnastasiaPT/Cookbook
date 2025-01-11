@@ -8,4 +8,7 @@ export const viewRecipeRouteParams = getRouteParams({ recipeNick: true })
 export type ViewRecipeRouteParams = typeof viewRecipeRouteParams
 export const getViewRecipeRoute = ({ recipeNick }: ViewRecipeRouteParams) => `/recipes/${recipeNick}`
 export const getNewRecipeRoute = () => '/recipes/new'
+export const getSignUpRoute = () => '/sign-up'
+export const getSignInRoute = () => '/sign-in'
+export const getSignOutRoute = () => '/sign-out'
 
