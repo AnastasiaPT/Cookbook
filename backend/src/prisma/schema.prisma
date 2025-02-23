@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearchPostgres"]
 }
 
 datasource db {
@@ -10,15 +11,39 @@ datasource db {
 model User {
   id        String   @id @default(uuid())
   nick      String   @unique
+  name      String   @default("")
   password  String
   createdAt DateTime @default(now())
+  recipes   Recipe[]
+  recipesLikes RecipeLike[]
+  permissions UserPermission[]
 }
 
+enum UserPermission {
+  BLOCK_RECIPES
+  ALL
+}
 model Recipe {
   id          String @id @default(uuid())
   nick        String @unique
+  serialNumber Int      @unique @default(autoincrement())
   name        String
   description String
   text        String
   createdAt   DateTime @default(now())
+  blockedAt    DateTime?
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+  recipesLikes RecipeLike[]
+}
+
+model RecipeLike {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  recipe      Recipe     @relation(fields: [recipeId], references: [id])
+  recipeId    String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+
+  @@unique([recipeId, userId])
 }

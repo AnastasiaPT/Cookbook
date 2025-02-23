@@ -1,0 +1,27 @@
+@import '../../../styles/_vars.scss';
+@import '../../../styles/_mixins.scss';
+
+.filter {
+  margin-bottom: 20px;
+}
+
+.recipes {
+  .recipe {
+    padding: 20px;
+    border: 1px solid $black;
+    border-radius: 10px;
+
+    & + .idea {
+      margin-top: 20px;
+    }
+
+    .recipeLink {
+        @include link;
+    }
+  }
+  
+  .more {
+    margin-top: 15px;
+  }
+   
+}
